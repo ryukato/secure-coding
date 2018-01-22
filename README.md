@@ -1,6 +1,3 @@
-* TOC
-{:toc}
-
 # Secure Codings 요약 정리
 ## Secure Coding Practices
 ### SQL Injection
