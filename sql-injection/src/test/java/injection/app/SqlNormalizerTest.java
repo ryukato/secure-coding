@@ -2,16 +2,15 @@ package injection.app;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
-public class SqlFilterTest {
+public class SqlNormalizerTest {
 
     @Test
     public void filterSpecialChars() {
         String[] specialChars = new String[]{"[", "]", "'", "\\", "-", "#"};
         String testStatement = "[]'\\-#";
-        SqlFilter sqlFilter = (s) -> null;
+        SqlNormalizer sqlFilter = (s) -> null;
         testStatement = sqlFilter.filterSpecialChars(testStatement);
 
         for (int i = 0; i < specialChars.length; i++) {
@@ -21,8 +20,8 @@ public class SqlFilterTest {
 
     @Test
     public void testOracleSqlFilter() throws Exception {
-        SqlFilter sqlFilter = new OracleSqlFilter();
-        String result = sqlFilter.doFilter("exec openrowset");
+        SqlNormalizer sqlFilter = new OracleSqlNormalizer();
+        String result = sqlFilter.normalize("exec openrowset");
         assertFalse("openrowset removed", result.contains("openrowset"));
     }
 }

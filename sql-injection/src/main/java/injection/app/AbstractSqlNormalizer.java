@@ -1,11 +1,10 @@
 package injection.app;
 
-import java.util.Optional;
 import java.util.Set;
 
-public abstract class AbstractSqlFilter implements SqlFilter {
+public abstract class AbstractSqlNormalizer implements SqlNormalizer {
     @Override
-    public String doFilter(String input) {
+    public String normalize(String input) {
         Set<String> filterSet = loadFilterSet();
         String result = input;
         for (String f : filterSet) {

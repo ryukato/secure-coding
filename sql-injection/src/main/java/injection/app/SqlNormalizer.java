@@ -3,7 +3,7 @@ package injection.app;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
-public interface SqlFilter {
+public interface SqlNormalizer {
     Pattern PATTERN = Pattern.compile("[\\[\\]'\\-#()@;=*/+\\\\]");
 
     default String filterSpecialChars(String testStatement) {
@@ -12,5 +12,5 @@ public interface SqlFilter {
                 .orElse("");
     }
 
-    String doFilter(String input);
+    String normalize(String input);
 }

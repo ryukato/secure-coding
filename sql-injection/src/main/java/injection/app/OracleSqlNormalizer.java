@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class OracleSqlFilter extends AbstractSqlFilter {
+public class OracleSqlNormalizer extends AbstractSqlNormalizer {
     private static final Set<String> FILTER_SET =  new HashSet<>(Arrays.asList("openrowset", "user_tables", "row_num", "..."));
     @Override
     Set<String> loadFilterSet() {
